@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageDownloader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Sequence Image Downloader" Height="460" Width="600" Loaded="Window_Loaded" Initialized="Window_Initialized" ResizeMode="CanMinimize">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="기본 URL" Width="auto" Height="30"/>
+                <TextBox x:Name="txtUrl" Height="25" TextWrapping="Wrap" Width="400" AutomationProperties.HelpText="http://nipa0711.net/" AutomationProperties.Name="txtUrl"/>
+                <Button x:Name="btnURL" Content="입력" Width="75" Height="25" Click="BtnURL_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="숫자" Width="auto" Height="30"/>
+                <TextBox x:Name="txtStart" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="1" Width="120"/>
+                <Label Content="부터" Width="auto" Height="30"/>
+                <TextBox x:Name="txtEnd" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="100" Width="120"/>
+                <Label Content="까지" Width="auto" Height="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="숫자 자리수" Width="auto" Height="30"/>
+                <TextBox x:Name="txtCnt" Height="25"  TextWrapping="Wrap" Text="1" Width="120"/>
+                <Label Content="자리" Width="auto" Height="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="파일 확장자" />
+                <TextBox x:Name="txtFileExtension" Height="25"  TextWrapping="Wrap" Text=".jpg" Width="120"/>
+                <Button x:Name="btnSeq" Content="확인" Width="75" Height="25" IsEnabled="False" Click="BtnSeq_Click"/>
+            </StackPanel>
+            <Label Content="기본적으로 1부터 시작하지만 001 식으로 이뤄진 URL의 경우 숫자 자리수에 3을 입력해주세요" HorizontalAlignment="Left" Width="550"/>
+            <Label Content="ex) http://nipa0711.net/1.jpg =&gt; 숫자 자리수 1 자리" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Content="ex) http://nipa0711.net/001.jpg =&gt; 숫자 자리수 3 자리" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <ListBox x:Name="list_url" HorizontalAlignment="Left" Height="120" Width="580"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnDelSel" Content="선택 리스트 삭제" Click="BtnDelSel_Click" IsEnabled="False"></Button>
+                <Button x:Name="BtnDelAll" Content="리스트 전체 삭제" Click="BtnDelAll_Click" IsEnabled="False"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="다운로드 위치" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <TextBox x:Name="txtLocation" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="380" />
+                <Button x:Name="btnDownloadLoc" Content="변경" HorizontalAlignment="Left"  Width="75" Click="BtnDownloadLoc_Click" />
+            </StackPanel>
+            <Button x:Name="BtnDownload" Content="Download" Height="50" Click="BtnDownload_Click" />
+        </StackPanel>
     </Grid>
 </Window>
