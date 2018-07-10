@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageDownloader"
         mc:Ignorable="d"
-        Title="Sequence Image Downloader" Height="460" Width="600" Loaded="Window_Loaded" Initialized="Window_Initialized" ResizeMode="CanMinimize">
+        Title="Sequence Image Downloader" Height="500" Width="600" Loaded="Window_Loaded" Initialized="Window_Initialized" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
             <StackPanel Orientation="Horizontal">
@@ -25,6 +25,13 @@
                 <TextBox x:Name="txtCnt" Height="25"  TextWrapping="Wrap" Text="1" Width="120"/>
                 <Label Content="자리" Width="auto" Height="30"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="접두사"></Label>
+                <TextBox x:Name="txt_prefix" Width="150"></TextBox>
+                <Label Content="접미사"></Label>
+                <TextBox x:Name="txt_suffix" Width="150"></TextBox>
+            </StackPanel>
+            <Label Content="DSC-001, DSC-002 이런식이라면 접두사를 001ABC, 002ABC 이런식의 경우 접미사를 이용해주세요."></Label>
             <StackPanel Orientation="Horizontal" >
                 <Label Content="파일 확장자" />
                 <TextBox x:Name="txtFileExtension" Height="25"  TextWrapping="Wrap" Text=".jpg" Width="120"/>

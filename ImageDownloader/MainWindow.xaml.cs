@@ -60,11 +60,13 @@ namespace ImageDownloader
         {
             int i = Int32.Parse(txtStart.Text);
             int j = Int32.Parse(txtEnd.Text);
+            string prefix = txt_prefix.Text;
+            string suffix = txt_suffix.Text;
             string extension = txtFileExtension.Text;
             String digitCnt = "D" + txtCnt.Text;
             for (; i < j; i++)
             {
-                string list = Url + i.ToString(digitCnt) + extension;
+                string list = Url + prefix + i.ToString(digitCnt) + suffix + extension;
                 list_url.Items.Add(list);
             }
 
